@@ -1,12 +1,8 @@
 <resources>
     <string name="app_name">MP5</string>
-    <string name="textView">Conversation Starters!</string>
-    <string name="mainButton">choose a joke</string>
-    <string name="button1">News Headlines</string>
-    <string name="button2">Cat Pictures</string>
-    <string name="button3">Geoff Jokes</string>
-    <string name="button4">m</string>
-    <string name="textResult">result</string>
+    <string name="textView">Headline Generator!</string>
+    <string name="mainButton">Headline Generator!</string>
+    <string name="button1">New Headline</string>
     <string name="result">result</string>
 
 </resources>

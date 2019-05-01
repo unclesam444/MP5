@@ -59,6 +59,8 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+
+
 public class MainActivity extends AppCompatActivity {
     private String result;
     private static RequestQueue requestQueue;
@@ -66,9 +68,6 @@ public class MainActivity extends AppCompatActivity {
 
     private Button main;
     private Button button1;
-    private Button button2;
-    private Button button3;
-    private Button button4;
     private TextView textResult;
 
     @Override
@@ -78,16 +77,10 @@ public class MainActivity extends AppCompatActivity {
 
         main = findViewById(R.id.mainButton);
         button1 = findViewById(R.id.button1);
-        button2 = findViewById(R.id.button2);
-        button3 = findViewById(R.id.button3);
-        button4 = findViewById(R.id.button4);
         textResult = findViewById(R.id.textResult);
 
         main.setVisibility(View.VISIBLE);
         button1.setVisibility(View.GONE);
-        button2.setVisibility(View.GONE);
-        button3.setVisibility(View.GONE);
-        button4.setVisibility(View.GONE);
         textResult.setVisibility(View.GONE);
 
 
@@ -96,9 +89,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "Have a good day!!", Toast.LENGTH_SHORT).show();
                 button1.setVisibility(View.VISIBLE);
-                button2.setVisibility(View.VISIBLE);
-                button3.setVisibility(View.VISIBLE);
-                button4.setVisibility(View.VISIBLE);
             }
         });
 
@@ -125,7 +115,6 @@ public class MainActivity extends AppCompatActivity {
         //TextView forNow = findViewById(R.id.textView);
         //getDadJoke();
     }
-    //564c54f36d8a4b42b394193d68795fc8 News API
 
     void getDadJoke() {
         try {
@@ -166,41 +155,5 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    //d13f9667-81fe-4ece-b1aa-cf8319f26c3b CAT API
-//    void getCatPic() {
-//        try {
-//            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-//
-//                    Request.Method.GET, "https://api.thecatapi.com/v1/images/search?" +
-//                    "apikey-d13f9667-81fe-4ece-b1aa-cf8319f26c3b", null,
-//                    new Response.Listener<JSONObject>() {
-//                        @Override
-//                        public void onResponse(JSONObject response) {
-//                            setCatPic(response);
-//                            System.out.println("Success");
-//                        }
-//                    }, new Response.ErrorListener() {
-//                @Override
-//                public void onErrorResponse(VolleyError error) {
-//                    System.out.println("failure");
-//                }
-//            });
-//            jsonObjectRequest.setShouldCache(false);
-//            requestQueue.add(jsonObjectRequest);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            System.out.println("api failed");
-//        }
-//    }
-//
-//    void setCatPic(JSONObject input) {
-//        try {
-//            JSONArray cats = input.getJSONArray("");
-//            JSONObject newCat = cats.getJSONObject(0);
-//            System.out.println(newCat.get(".url").toString());
-//            //add image here
-//        } catch (Exception e) {
-//            System.out.println("rekt");
-//        }
-//    }
+
 }
