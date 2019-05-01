@@ -2,9 +2,11 @@
     <string name="app_name">MP5</string>
     <string name="textView">Conversation Starters!</string>
     <string name="mainButton">choose a joke</string>
-    <string name="button1">Dad Joke</string>
+    <string name="button1">News Headlines</string>
     <string name="button2">Cat Facts</string>
     <string name="button3">Geoff Jokes</string>
     <string name="button4">m</string>
+    <string name="textResult">result</string>
+    <string name="result">result</string>
 
 </resources>

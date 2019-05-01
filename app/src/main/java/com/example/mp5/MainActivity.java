@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
     private Button button2;
     private Button button3;
     private Button button4;
+    private TextView textResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,12 +82,14 @@ public class MainActivity extends AppCompatActivity {
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
         button4 = findViewById(R.id.button4);
+        textResult = findViewById(R.id.textResult);
 
         main.setVisibility(View.VISIBLE);
         button1.setVisibility(View.GONE);
         button2.setVisibility(View.GONE);
         button3.setVisibility(View.GONE);
         button4.setVisibility(View.GONE);
+        textResult.setVisibility(View.GONE);
 
 
         main.setOnClickListener(new View.OnClickListener() {
@@ -100,8 +103,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Have a good day!!", Toast.LENGTH_SHORT).show();
+                textResult.setVisibility(View.VISIBLE);
+                getDadJoke();
+            }
+        });
+
+
         requestQueue = Volley.newRequestQueue(this);
-        TextView forNow = findViewById(R.id.textView);
+        //TextView forNow = findViewById(R.id.textView);
         getDadJoke();
     }
     //564c54f36d8a4b42b394193d68795fc8
@@ -136,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
             JSONArray articles = input.getJSONArray("articles");
             JSONObject first = articles.getJSONObject(0);
             String headline = first.get("title").toString();
-            System.out.println(headline);
+            textResult.setText(headline);
         } catch (Exception e) {
             System.out.println("rekt");
         }
