@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">MP5</string>
-    <string name="textView">Headline Generator!</string>
-    <string name="mainButton">Headline Generator!</string>
-    <string name="button1">New Headline</string>
+    <string name="textView">What\'s in the news?</string>
+    <string name="mainButton">Start Reading</string>
+    <string name="button1">Next Article</string>
     <string name="result">result</string>
 
 </resources>

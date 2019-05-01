@@ -90,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "Have a good day!!", Toast.LENGTH_SHORT).show();
                 button1.setVisibility(View.VISIBLE);
+                textResult.setVisibility(View.VISIBLE);
+                getHeadline();
             }
         });
 
@@ -98,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "Have a good day!!", Toast.LENGTH_SHORT).show();
                 textResult.setVisibility(View.VISIBLE);
-                getDadJoke();
+                getHeadline();
             }
         });
 
@@ -117,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         //getDadJoke();
     }
 
-    void getDadJoke() {
+    void getHeadline() {
         try {
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
 
@@ -126,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
-                            setDadJoke(response);
+                            setHeadline(response);
                             System.out.println("Success");
                         }
                     }, new Response.ErrorListener() {
@@ -143,13 +145,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    void setDadJoke(JSONObject input) {
+    void setHeadline(JSONObject input) {
         try {
             JSONArray articles = input.getJSONArray("articles");
             JSONObject first = articles.getJSONObject(index);
             String headline = first.get("title").toString();
             String url = first.get("url").toString();
-            textResult.setText(headline + "\n" + url);
+            String description = first.get("description").toString();
+            textResult.setText(headline + "\n" + description + "\n" + url);
             index++;
         } catch (Exception e) {
             System.out.println("rekt");
