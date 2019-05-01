@@ -64,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
     private static RequestQueue requestQueue;
 
 
-
     private Button main;
     private Button button1;
     private Button button2;
@@ -101,10 +100,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         requestQueue = Volley.newRequestQueue(this);
-        TextView forNow = findViewById(R.id.textView);
+        //TextView forNow = findViewById(R.id.textView);
         getDadJoke();
     }
-    //564c54f36d8a4b42b394193d68795fc8
+    //564c54f36d8a4b42b394193d68795fc8 News API
+
     void getDadJoke() {
         try {
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
@@ -142,4 +142,40 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //d13f9667-81fe-4ece-b1aa-cf8319f26c3b CAT API
+    void getCatPic() {
+        try {
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+
+                    Request.Method.GET, "https://thecatapi.com/v1/images/search?" +
+                    "api_key=d13f9667-81fe-4ece-b1aa-cf8319f26c3b", null,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            setCatPic(response);
+                            System.out.println("Success");
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    System.out.println("failure");
+                }
+            });
+            jsonObjectRequest.setShouldCache(false);
+            requestQueue.add(jsonObjectRequest);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("api failed");
+        }
+    }
+
+    void setCatPic(JSONObject input) {
+        try {
+            JSONArray cats = input.getJSONArray();
+            JSONObject newCat = cats.getJSONObject(0);
+            //add image here
+        } catch (Exception e) {
+            System.out.println("rekt");
+        }
+    }
 }
