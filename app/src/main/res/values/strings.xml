@@ -1,16 +1,13 @@
 <resources>
+
     <string name="app_name">MP5</string>
+
     <string name="textView">Conversation Starters!</string>
+
     <string name="mainButton">choose a joke</string>
-    <string-array name=""></string-array>
-
-
-
-
-
-    <string name ="button1">b1</string>
-    <string name="button2">b2</string>
-    <string name="button3">b3</string>
-    <string name="button4">b4</string>
+    <string name="button1">Dad Joke</string>
+    <string name="button2">Cat Facts</string>
+    <string name="button3">Geoff Jokes</string>
+    <string name="button4">m</string>
 
 </resources>
