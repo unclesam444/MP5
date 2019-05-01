@@ -133,10 +133,10 @@ public class MainActivity extends AppCompatActivity {
 
     void setDadJoke(JSONObject input) {
         try {
-            String joke = input.get("joke").toString();
-            TextView forNow = findViewById(R.id.textView);
-            forNow.setText(joke);
-            System.out.println(joke);
+            JSONArray articles = input.getJSONArray("articles");
+            JSONObject first = articles.getJSONObject(0);
+            String headline = first.getJSONObject("title").toString();
+
         } catch (Exception e) {
             System.out.println("rekt");
         }
