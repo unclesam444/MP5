@@ -1,10 +1,7 @@
 <resources>
-
     <string name="app_name">MP5</string>
-
-    <string name="textView">Fun Conversation Starters!</string>
-
-    <string name="mainButton">choose your fate</string>
+    <string name="textView">Conversation Starters!</string>
+    <string name="mainButton">choose a joke</string>
     <string name="button1">Dad Joke</string>
     <string name="button2">Cat Facts</string>
     <string name="button3">Geoff Jokes</string>
