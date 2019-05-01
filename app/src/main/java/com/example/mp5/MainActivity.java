@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
-                            setCatPic(response);
+                            //setCatPic(response);
                             System.out.println("Success");
                         }
                     }, new Response.ErrorListener() {
@@ -182,13 +182,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    void setCatPic(JSONObject input) {
-        try {
-            JSONArray cats = input.getJSONArray();
-            JSONObject newCat = cats.getJSONObject(0);
-            //add image here
-        } catch (Exception e) {
-            System.out.println("rekt");
-        }
-    }
+//    void setCatPic(JSONObject input) {
+//        try {
+//            JSONArray cats = input.getJSONArray();
+//            JSONObject newCat = cats.getJSONObject(0);
+//            //add image here
+//        } catch (Exception e) {
+//            System.out.println("rekt");
+//        }
+//    }
 }
