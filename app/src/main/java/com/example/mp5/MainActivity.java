@@ -62,7 +62,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private String result;
     private static RequestQueue requestQueue;
-
+    private int index = 0;
 
     private Button main;
     private Button button1;
@@ -111,10 +111,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+//        button2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(MainActivity.this, "Have a good day!!", Toast.LENGTH_SHORT).show();
+//                //textResult.setVisibility(View.VISIBLE);
+//                getCatPic();
+//            }
+//        });
+
 
         requestQueue = Volley.newRequestQueue(this);
         //TextView forNow = findViewById(R.id.textView);
-        getDadJoke();
+        //getDadJoke();
     }
     //564c54f36d8a4b42b394193d68795fc8 News API
 
@@ -147,48 +156,51 @@ public class MainActivity extends AppCompatActivity {
     void setDadJoke(JSONObject input) {
         try {
             JSONArray articles = input.getJSONArray("articles");
-            JSONObject first = articles.getJSONObject(0);
+            JSONObject first = articles.getJSONObject(index);
             String headline = first.get("title").toString();
-            textResult.setText(headline);
+            String url = first.get("url").toString();
+            textResult.setText(headline + "\n" + url);
+            index++;
         } catch (Exception e) {
             System.out.println("rekt");
         }
     }
 
-    //d13f9667-81fe-4ece-b1aa-cf8319f26c3b CAT API
-    void getCatPic() {
-        try {
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-
-                    Request.Method.GET, "https://thecatapi.com/v1/images/search?" +
-                    "api_key=d13f9667-81fe-4ece-b1aa-cf8319f26c3b", null,
-                    new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            setCatPic(response);
-                            System.out.println("Success");
-                        }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    System.out.println("failure");
-                }
-            });
-            jsonObjectRequest.setShouldCache(false);
-            requestQueue.add(jsonObjectRequest);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("api failed");
-        }
-    }
-
-    void setCatPic(JSONObject input) {
-        try {
-            JSONArray cats = input.getJSONArray();
-            JSONObject newCat = cats.getJSONObject(0);
-            //add image here
-        } catch (Exception e) {
-            System.out.println("rekt");
-        }
-    }
+//    //d13f9667-81fe-4ece-b1aa-cf8319f26c3b CAT API
+//    void getCatPic() {
+//        try {
+//            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+//
+//                    Request.Method.GET, "https://api.thecatapi.com/v1/images/search?" +
+//                    "apikey-d13f9667-81fe-4ece-b1aa-cf8319f26c3b", null,
+//                    new Response.Listener<JSONObject>() {
+//                        @Override
+//                        public void onResponse(JSONObject response) {
+//                            setCatPic(response);
+//                            System.out.println("Success");
+//                        }
+//                    }, new Response.ErrorListener() {
+//                @Override
+//                public void onErrorResponse(VolleyError error) {
+//                    System.out.println("failure");
+//                }
+//            });
+//            jsonObjectRequest.setShouldCache(false);
+//            requestQueue.add(jsonObjectRequest);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            System.out.println("api failed");
+//        }
+//    }
+//
+//    void setCatPic(JSONObject input) {
+//        try {
+//            JSONArray cats = input.getJSONArray("");
+//            JSONObject newCat = cats.getJSONObject(0);
+//            System.out.println(newCat.get(".url").toString());
+//            //add image here
+//        } catch (Exception e) {
+//            System.out.println("rekt");
+//        }
+//    }
 }
