@@ -135,8 +135,8 @@ public class MainActivity extends AppCompatActivity {
         try {
             JSONArray articles = input.getJSONArray("articles");
             JSONObject first = articles.getJSONObject(0);
-            String headline = first.getJSONObject("title").toString();
-
+            String headline = first.get("title").toString();
+            System.out.println(headline);
         } catch (Exception e) {
             System.out.println("rekt");
         }
